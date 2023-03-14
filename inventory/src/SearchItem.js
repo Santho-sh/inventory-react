@@ -1,4 +1,3 @@
-import "./SearchItem.css";
 import { useState } from "react";
 
 function SearchItem(props) {
@@ -28,24 +27,28 @@ function SearchItem(props) {
         type="text"
         className="add-name-input"
         placeholder="Name"
+        value={name}
         onChange={(e) => setName(e.target.value)}
       ></input>
       <input
         type="number"
         className="add-price-input"
         placeholder="Max Price"
+        value={price}
         onChange={(e) => setPrice(e.target.value)}
       ></input>
       <input
         type="text"
         className="add-type-input"
         placeholder="Type"
+        value={type}
         onChange={(e) => setType(e.target.value)}
       ></input>
       <input
         type="text"
         className="add-brand-input"
         placeholder="Brand"
+        value={brand}
         onChange={(e) => setBrand(e.target.value)}
       ></input>
       <button className="add-button" onClick={searchItem}>
