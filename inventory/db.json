@@ -1,0 +1,39 @@
+{
+  "items": [
+    {
+      "name": "Milk",
+      "price": "7.99",
+      "type": "Grocery",
+      "brand": "Aroma",
+      "id": 1
+    },
+    {
+      "name": "Apple",
+      "price": "5.99",
+      "type": "Fruit",
+      "brand": "Apple",
+      "id": 2
+    },
+    {
+      "name": "Onion",
+      "price": "3.00",
+      "type": "Veg",
+      "brand": "Oni",
+      "id": 3
+    },
+    {
+      "name": "Soap",
+      "price": "2.99",
+      "type": "Bath",
+      "brand": "Hamam",
+      "id": 4
+    },
+    {
+      "name": "Sampoo",
+      "price": "1.50",
+      "type": "",
+      "brand": "Cleanic plus",
+      "id": 5
+    }
+  ]
+}

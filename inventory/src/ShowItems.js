@@ -19,8 +19,8 @@ function ShowItems(props) {
                 <td>{item.id}</td>
                 <td>{item.name}</td>
                 <td>{item.price}</td>
-                <td>{item.type}</td>
-                <td>{item.brand}</td>
+                <td>{item.type !== "" ? item.type: "-"}</td>
+                <td>{item.brand !== "" ? item.brand: "-"}</td>
               </tr>
             );
           })}
