@@ -1,4 +1,4 @@
-function ShowItems(props) {
+function ShowItems({items, deleteItem}) {
   return (
     <div className="container mt-3">
       <h3>All Items</h3>
@@ -13,7 +13,7 @@ function ShowItems(props) {
           </tr>
         </thead>
         <tbody>
-          {props.items.map((item) => {
+          {items.map((item) => {
             return (
               <tr key={item.id}>
                 <td>{item.id}</td>
@@ -21,6 +21,14 @@ function ShowItems(props) {
                 <td>{item.price}</td>
                 <td>{item.type !== "" ? item.type: "-"}</td>
                 <td>{item.brand !== "" ? item.brand: "-"}</td>
+                <td>
+                  <button
+                    className="btn btn-outline-danger btn-sm"
+                    onClick={() => deleteItem(item)}
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             );
           })}

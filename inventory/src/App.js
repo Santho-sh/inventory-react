@@ -67,9 +67,23 @@ function App() {
     return filterdData;
   };
 
+  const detelteItem = (item) => {
+
+    let items = data["items"]
+      fetch(`http://localhost:4000/items/${item.id}`,{
+        method:"DELETE"
+      }).then(response => {
+        if (response.ok) {
+          const index = items.indexOf(item);
+          items.splice(index, 1);
+          setData({items:items});
+        }
+      })
+  }
+
   return (
     <div className="container">
-      <ShowItems items={filterData(data["items"])} />
+      <ShowItems items={filterData(data["items"])} deleteItem={detelteItem} />
       <SearchItem updateSearchParams={updateFilter} />
       <AddItem addToItems={addItem} />
     </div>
