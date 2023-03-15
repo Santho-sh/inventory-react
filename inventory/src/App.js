@@ -3,6 +3,7 @@ import AddItem from "./AddItem";
 import SearchItem from "./SearchItem";
 import ShowItems from "./ShowItems";
 import { useState } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [data, setData] = useState({ items: [] });
@@ -22,10 +23,10 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="container">
+      <ShowItems items={data["items"]} />
       <SearchItem updateSearchParams={updateFilter} />
       <AddItem addToItems={addItem} />
-      <ShowItems items={data["items"]} />
     </div>
   );
 }

@@ -1,1 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* body {
+    margin-inline: 10vw;
+}
+
+.search-save-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.search-save-item input {
+    width: 15rem;
+    height: 2rem;
+    padding-left: 5px;
+} */
