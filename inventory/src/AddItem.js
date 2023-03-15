@@ -7,17 +7,24 @@ function AddItem(props) {
   const [brand, setBrand] = useState("");
 
   const saveItem = () => {
-    props.addToItems({
-      name: name,
-      price: price,
-      type: type,
-      brand: brand,
-    });
+    if(name !== "" && price !== 0) {
 
-    setName("");
-    setPrice(0);
-    setType("");
-    setBrand("");
+      props.addToItems({
+        name: name,
+        price: price,
+        type: type,
+        brand: brand,
+      });
+
+      setName("");
+      setPrice(0);
+      setType("");
+      setBrand("");
+    
+    } else {
+      return alert("Please Enter Name And Price")
+    }
+
   };
 
   return (

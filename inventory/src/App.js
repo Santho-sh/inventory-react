@@ -11,20 +11,46 @@ function App() {
 
   const addItem = (item) => {
     let items = data["items"];
-    item.id = items.length;
+    item.id = items.length + 1;
     items.push(item);
     setData({ items: items });
-    console.log(items);
   };
 
   const updateFilter = (searchParams) => {
     setFilters(searchParams);
-    console.log(filters);
+  };
+
+  const filterData = (data) => {
+    let filterdData = []
+
+    if (!filters.name){
+      return data
+    }
+
+    for(const item of data){
+      if(filters.name !== "" && filters.name !== item.name) {
+        continue
+      };
+      if(filters.price !== 0 && filters.price < item.price) {
+        continue
+      };
+      if(filters.type !== "" && filters.type !== item.type) {
+        continue
+      };
+      if(filters.brand !== "" && filters.brand !== item.brand) {
+        continue
+      };
+
+      filterdData.push(item);
+
+    };
+
+    return filterdData
   };
 
   return (
     <div className="container">
-      <ShowItems items={data["items"]} />
+      <ShowItems items={filterData(data["items"])} />
       <SearchItem updateSearchParams={updateFilter} />
       <AddItem addToItems={addItem} />
     </div>
