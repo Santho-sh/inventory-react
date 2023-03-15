@@ -9,6 +9,7 @@ function App() {
   const [data, setData] = useState({ items: [] });
   const [filters, setFilters] = useState({});
 
+  // Get All items when first loading the app
   useEffect(() => {
     fetch("http://localhost:4000/items")
       .then((response) => response.json())
@@ -17,8 +18,8 @@ function App() {
       });
   }, []);
 
+  // Add items to Json server
   const addItem = (item) => {
-
     let items = data["items"];
 
     fetch("http://localhost:4000/items", {
@@ -33,13 +34,14 @@ function App() {
         items.push(data);
         setData({ items: items });
       });
-      
   };
 
+  // Update Filter fields
   const updateFilter = (searchParams) => {
     setFilters(searchParams);
   };
 
+  // Filter All items if filters present; else return all items
   const filterData = (data) => {
     let filterdData = [];
 
@@ -67,19 +69,19 @@ function App() {
     return filterdData;
   };
 
+  // Delete Item in Json server
   const detelteItem = (item) => {
-
-    let items = data["items"]
-      fetch(`http://localhost:4000/items/${item.id}`,{
-        method:"DELETE"
-      }).then(response => {
-        if (response.ok) {
-          const index = items.indexOf(item);
-          items.splice(index, 1);
-          setData({items:items});
-        }
-      })
-  }
+    let items = data["items"];
+    fetch(`http://localhost:4000/items/${item.id}`, {
+      method: "DELETE",
+    }).then((response) => {
+      if (response.ok) {
+        const index = items.indexOf(item);
+        items.splice(index, 1);
+        setData({ items: items });
+      }
+    });
+  };
 
   return (
     <div className="container">
